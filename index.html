@@ -27,52 +27,90 @@
 <body>
 
   <div id="home-display">
-    <p> A mental health app for developers.
-      Before you throw your laptop across the room, or punch your monitor, try this app.
-    </p>
-    <form>
-      <label>Select a topic:</label>
-        <select id="topic-input">
-          <option disabled selected></option>
-          <option value="breathing">Breathing Exercises</option>
-          <option value="stretching">Stretching</option>
-          <option value="walking">Walking</option>
-          <option value="journaling">Journaling</option>
-          <option value="meditation">Meditation</option>
-          <option value="sleep">Sleep</option>
-        </select>
-      <button class="button" id="search">Search</button>
-    </form>
-    <div id="reviews">
-      <h2>The Reviews are in!</h2>
-      <div>
-        <h3>Amelia</h3>
-        <p>"This app helped me resist the urge to snap my keyboard in half over my knee! Thanks DevelopMental!"</p>
-      </div>
-      <div>
-        <h3>Reviewer Name Placeholder</h3>
-        <p>"satisfied quote placeholder."</p>
-      </div>
-      <div>
-        <h3>Reviewer Name Placeholder</h3>
-        <p>"satisfied quote placeholder."</p>
+    <p> A mental health app for developers.</p>
+    <p> Before you throw your laptop across the room, or punch your monitor, try this app.</p>
+    <div class="grid-x">
+      <div class="cell medium-6 large-4">
+
+        <form>
+          <label>Select a topic:</label>
+            <select id="topic-input">
+              <option disabled selected></option>
+              <option value="breathing">Breathing Exercises</option>
+              <option value="stretching">Stretching</option>
+              <option value="walking">Walking</option>
+              <option value="journaling">Journaling</option>
+              <option value="meditation">Meditation</option>
+              <option value="sleep">Sleep</option>
+            </select>
+          <button class="button" id="search">Search</button>
+        </form>
+
       </div>
     </div>
+
+    <div id="reviews">
+      <h2>User reviews!</h2>
+      <div class="grid-container">
+        <div class="grid-x grid-margin-x small-up-1 medium-up-3">
+
+          <div class="cell">
+
+            <div class="card">
+              <blockquote>
+                "This app helped me resist the urge to snap my keyboard in half over my knee! Thanks DevelopMental!"<cite>Amelia B.</cite>
+              </blockquote>
+            </div>
+
+          </div>
+
+          <div class="cell">  
+
+            <div class="card">
+              <blockquote>
+                "Thanks DevelopMental!"<cite>ABC</cite>
+              </blockquote>
+            </div>
+
+          </div>
+
+          <div class="cell"> 
+
+            <div class="card">
+              <blockquote>
+                "Thanks DevelopMental!"<cite>QRS</cite>
+              </blockquote>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 
   <div id="results-display" style="display: none;">
     <h1>Search Results</h1>
 
-      <div id="searchTopic"></div>
-      <div id="articles"></div>
-      <div id="video"></div>
+    <div id="searchTopic"></div>
+    <div id="searchVideos" class="grid-container">
+      <div class="grid-x grid-margin-x small-up-1 medium-up-3" id="resultsRow1"></div>
+      <div class="grid-x grid-margin-x small-up-1 medium-up-3" id="resultsRow2"></div>
+      <div class="grid-x grid-margin-x small-up-1 medium-up-3" id="resultsRow3"></div>
+    </div>
 
-      <button class="button" id="back">Back to Search</button>
+    <button class="button" id="back">Back to Search</button>
   </div>
 
   <div id="favorites-display" style="display: none;">
     <h2>Favorites</h2>
-    <div id="favoriteVids"></div>
+    <div id="favoriteVids" class="grid-container">
+
+      <div class="grid-x grid-margin-x small-up-1 medium-up-3" id="favoritesRow1"></div>
+      <div class="grid-x grid-margin-x small-up-1 medium-up-3" id="favoritesRow2"></div>
+      <div class="grid-x grid-margin-x small-up-1 medium-up-3" id="favoritesRow3"></div>
+
+    </div>
   </div>
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
