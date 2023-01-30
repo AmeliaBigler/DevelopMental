@@ -20,6 +20,14 @@ $(function (){
     var resultsGrandparent = $('#searchVids')
     var favoritesGrandparent = $('#favoriteVids')
 
+    var favoritesArray = []
+
+    function init() {
+        if (!localStorage.getItem('favoritesArray')){
+            localStorage.setItem('favoritesArray', JSON.stringify(favoritesArray));
+        }
+    }
+    
     var key          = 'AIzaSyCPobD0i2Z2m-JrcMzBggc7gQ1cYt-MfIE';
 
     var staticParams = {
@@ -116,8 +124,8 @@ $(function (){
             // create new HTML elements
             var div1 = $('<div class="cell"></div>');
             var div2 = $('<div class="card"></div>');
-            var para = $('<p></p>').text('test');
-            var favoriteBtn = $('<button class="button favorite">Favorite</button>');
+            var para = $('<p></p>').text('test' + i);
+            var favoriteBtn = $('<button class="button favoriteBtn">Favorite</button>');
     
             // query selector for parent element in HTML DOM
             var videosRow1 = $('#resultsRow1');
@@ -138,6 +146,24 @@ $(function (){
                 videoRowArray[2].append(div1);
             }
         }
+
+        var favBtns = ($('.favoriteBtn'));
+        console.log(favBtns);
+
+        favBtns.click(function(){
+                var vidTitle = $(this).siblings()[0].innerText; //TODO:replace with vid title property
+                // TODO: create var for vid ID
+                // TODO: create var for thumbnail?
+                console.log(vidTitle); //TEST
+
+                var favoriteObject = {
+                    vidTitle: vidTitle,
+                    // key-value pair of vid ID
+                    // key-value pair of thumbnail?
+                }
+
+                localStorage.setItem('favoriteObject', JSON.stringify(favoriteObject));
+            })
         
     }
 
@@ -244,5 +270,7 @@ $(function (){
         }
         
     }
+
+    init();
 
 })
