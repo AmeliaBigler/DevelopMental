@@ -1,6 +1,18 @@
 // all code inside call to jQuery - will not run until document renders.
 $(function (){
 
+    // Initialize Foundation plugins (like Reveal modal)
+    $(document).foundation();
+
+    // We can add options to our modal later
+    var modalOptions = {};
+
+    var $modal = new Foundation.Reveal($('#modal'), modalOptions);
+
+    $('#modal-close').click(function() {
+        $modal.close();
+    });
+
     var homeDisplay = $('#home-display');
     var favoritesDisplay = $('#favorites-display');
     var resultsDisplay = $('#results-display')
@@ -10,8 +22,21 @@ $(function (){
 
     var searchBtn = $('#search');
     searchBtn.on('click', function(event){
+
         event.preventDefault();
-        var topic = $('#topic-input')[0].value; 
+
+        var topic = $('#topic-input').val().trim();
+
+        // <option value=''> Note: unable to select disabled form input
+        if (topic === '') {
+            var title = $('#modal-title');
+            title.text('Please try again')
+            var msg = $('#modal-message');
+            msg.text('Please select a topic to search.');
+            $modal.open();
+            // Exit 
+            return;
+        }
 
         localStorage.setItem('topicInput', JSON.stringify(topic)); 
 
