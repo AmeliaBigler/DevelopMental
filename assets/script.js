@@ -59,7 +59,20 @@ $(function (){
             // Exit 
             return;
         }
-        // Check localStorage localStorage.getItem(topic)?
+        
+        // Check localStorage and exit if found
+        var cachedSearch = localStorage.getItem(topic);
+
+        if (cachedSearch) {
+            searchData = JSON.parse(cachedSearch);
+
+            // TODO: Remove
+            console.log("Getting cached searchResults");
+            console.table(searchData);
+
+            // Exit
+            return;
+        }
         // TODO: Decide about disabling button after 1 search
 
         url = generateYTSearchURL(topic, staticParams);
