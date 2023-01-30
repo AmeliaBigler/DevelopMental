@@ -26,7 +26,15 @@
 
 <body>
 
-  <div id="home-display">
+  <div class="reveal" id="modal" data-reveal>
+    <h3 id="modal-title"></h3>
+    <p id="modal-message"></p>
+    <button id="modal-close" class="close-button" data-close aria-label="Close modal" type="button">
+      Close
+    </button>
+  </div>
+
+  <div id="home-display" class="grid-container">
     <p> A mental health app for developers.</p>
     <p> Before you throw your laptop across the room, or punch your monitor, try this app.</p>
     <div class="grid-x">
@@ -35,7 +43,7 @@
         <form>
           <label>Select a topic:</label>
             <select id="topic-input">
-              <option disabled selected></option>
+              <option value="" selected></option>
               <option value="breathing">Breathing Exercises</option>
               <option value="stretching">Stretching</option>
               <option value="walking">Walking</option>
@@ -89,7 +97,7 @@
 
   </div>
 
-  <div id="results-display" style="display: none;">
+  <div id="results-display" class="grid-container" style="display: none;">
     <h1>Search Results</h1>
 
     <div id="searchTopic"></div>
@@ -116,6 +124,9 @@
   </div>
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script 
+        src="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.5/dist/js/foundation.min.js" 
+        crossorigin="anonymous"></script>
   <script src="./assets/script.js"></script>
 </body>
   
