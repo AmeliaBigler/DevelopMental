@@ -20,6 +20,20 @@ $(function (){
     var resultsGrandparent = $('#searchVids')
     var favoritesGrandparent = $('#favoriteVids')
 
+    var key          = 'AIzaSyCPobD0i2Z2m-JrcMzBggc7gQ1cYt-MfIE';
+
+    var staticParams = {
+        part: 'snippet',
+        maxResults: 10,
+        type: 'video',
+        videoEmbeddable: true,
+        key: key
+    };
+
+    var url = '';
+    // "Global" object to store processed data
+    var searchData = null;
+
     var searchBtn = $('#search');
     searchBtn.on('click', function(event){
 
@@ -37,6 +51,26 @@ $(function (){
             // Exit 
             return;
         }
+        // Check localStorage localStorage.getItem(topic)?
+        // TODO: Decide about disabling button after 1 search
+
+        url = generateYTSearchURL(topic, staticParams);
+        // TODO: Remove
+        console.log(url);
+
+        getYTSearchData(url)
+            .then(function(data) {
+                var dataList = data.items;
+                searchData = processSearchData(dataList);
+                // store search data by topic : [searchData]
+                localStorage.setItem(topic, JSON.stringify(searchData));
+                // We could call renderSearch(searchData) here
+                // TODO: Remove
+                console.table(searchData);
+
+            }).catch(function(error) {
+                console.log(error, error.stack);
+            });
 
         localStorage.setItem('topicInput', JSON.stringify(topic)); 
 
@@ -108,7 +142,72 @@ $(function (){
     }
 
     // TODO: fetch youtube API
-        // TODO: create resultArray = [] then call renderSearch(); 
+    function generateYTSearchURL(searchPhrase, paramsObj) {
+        var baseURL = 'https://www.googleapis.com/youtube/v3/search?';
+        // combine param objects into a new one
+        var params = Object.assign({}, paramsObj, {q: searchPhrase});
+        // https://api.jquery.com/jQuery.param/
+        var queryString = $.param(params);
+
+        return baseURL + queryString;
+    }
+   
+    
+    
+    // TODO: create resultArray = [] then call renderSearch();
+
+    // Transforms YT data
+    // into a list of objects
+    // [
+    //  {
+    //    videoId: '',
+    //    title: '', 
+    //    description: '', 
+    //    thumbnailUrl: 
+    //      { 
+    //        medium: 'url', 
+    //        large: 'url' 
+    //      }
+    //  }
+    // ]
+    function processSearchData(dataList) {
+        let resultList = [];
+
+        for (item of dataList) {
+            const s = item.snippet;
+            const thumbs = s.thumbnails;        
+            resultList.push({
+                videoId: item.id.videoId,
+                title: s.title,
+                description: s.description,
+                thumbnailUrl: {
+                    medium: thumbs.medium.url,
+                    large: thumbs.high.url
+                }
+            });
+        }
+
+        return resultList;
+    }
+
+    // Called in search button click handler
+    // Returns a promise
+    function getYTSearchData(url) {
+        return fetch(url)
+            .then(function(response) {
+                if (response.ok) {
+                    return response.json();
+                } else {
+                    // fetch() won't error on 4xx status codes
+                    // so we have to throw our own
+                    throw new Error(`Unexpected status code: ${
+                        response.status
+                    } ${response.statusText}`);
+                }
+            }).catch(function(reason) {
+                console.error(reason.message);
+            });
+    } 
 
     // TODO: event listener for favorite button
         // TODO: local storage array for favorites
