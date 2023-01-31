@@ -199,8 +199,12 @@ $(function (){
             console.log("Getting cached searchResults");
             console.table(searchData);
 
+            homeDisplay.hide();
+            resultsDisplay.show();
+
+            renderSearch();
             // Exit
-            // return;
+            return;
         }
 
         url = generateYTSearchURL(topic, staticParams);
