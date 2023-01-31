@@ -51,7 +51,14 @@
               <option value="meditation">Meditation</option>
               <option value="sleep">Sleep</option>
             </select>
-          <button class="button" id="search">Search</button>
+          <button onclick="getOption()" class="button" id="search">Search</button>
+           <script type="text/javascript">
+    function getOption() {
+        selectElement = document.querySelector('#topic-input');
+        output = selectElement.value;
+        document.querySelector('.output').textContent = output;
+    }
+    </script>
         </form>
 
       </div>
@@ -98,7 +105,7 @@
   </div>
 
   <div id="results-display" class="grid-container" style="display: none;">
-    <h1>Search Results</h1>
+    <h1>Search Results:<span class="output"></span></h1>
 
     <div id="searchTopic"></div>
     <div id="searchVids" class="grid-container">
