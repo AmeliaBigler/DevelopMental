@@ -4,12 +4,15 @@
 .margin2{
     margin-bottom:50px
 }
+.margin3{
+    margin-left:75px;
+}
 .text-size-1{
-    font-size:33px;
+    font-size:40px;
     font-family:serif
 }
 .text-size-2{
-    font-size:22px;
+    font-size:25px;
     font-family:serif
 }
 h2{
