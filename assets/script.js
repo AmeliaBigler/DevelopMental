@@ -23,7 +23,6 @@ $(function (){
         });
     };
 
-
     // Notifications modal
     var modalOptions = {};
     var $modal = new Foundation.Reveal($('#modal'), modalOptions);
@@ -201,12 +200,13 @@ $(function (){
             var videoRowArray = [videosRow1, videosRow2, videosRow3];
     
             div1.append(div2);
-            div2.append(videoTitle);
-            div2.append(thumbnail);
-            div2.append(videoDescr);
             div2.append(favoriteBtn);
+            div2.append(thumbnail);
+            div2.append(videoTitle);
+            div2.append(videoDescr);
             // Play video
-            div2.on('click', openModalgetIdPlayVideo); 
+            div2.on('click', openModalgetIdPlayVideo);
+            
 
             if(i<=2) {
                 videoRowArray[0].append(div1);
@@ -356,10 +356,12 @@ $(function (){
             var div1 = $('<div class="cell"></div>');
             var div2 = $('<div class="card" id="' + favoritesArray[i].vidID + '"></div>');
             var removeBtn = $('<button class="button remove">Remove</button>'); //TODO: event listener for remove button.
-            var vidTitle = $('<h6>').text(favoritesArray[i].vidTitle);
+            var vidTitle = $('<h6>').html(favoritesArray[i].vidTitle);
             var thumbnail = $('<img>').attr('src', favoritesArray[i].vidThumbnail);
             var vidDescr = $('<p></p>').text(favoritesArray[i].vidDescr);
-            var notesBtn = $('<button class="button notes">Notes</button>'); //TODO: event listener for notes button.
+            // Wait for note button functionality
+            // var notesBtn = $('<button class="button notes">Notes</button>'); //TODO: event listener for notes button.
+            
             
             // TODO: create these rows dynamically so that the user can have more than 9 favorite videos.
             var favoritesRow1 = $('#favoritesRow1');
@@ -369,7 +371,8 @@ $(function (){
             var favoritesRowArray = [favoritesRow1, favoritesRow2, favoritesRow3];
     
             div1.append(div2);
-            div2.append(removeBtn,vidTitle,thumbnail,vidDescr,notesBtn);
+            // Wait for note button functionality
+            div2.append(removeBtn,thumbnail,vidTitle,vidDescr /*,notesBtn */);
 
             // Play video
             div2.on('click', openModalgetIdPlayVideo);
