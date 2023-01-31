@@ -145,6 +145,8 @@ $(function (){
         event.preventDefault();
 
         var topic = $('#topic-input').val().trim();
+        $('#topicSpan').text(" " + topic);
+        console.log(topic);
 
         // <option value=''> Note: unable to select disabled form input
         if (topic === '') {
