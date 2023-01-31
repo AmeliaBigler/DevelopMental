@@ -239,7 +239,7 @@ $(function (){
 
             // Check for duplicates
             if (isDuplicateFavorite(favoriteObject, favoritesArray)) {
-                // Respond to duplicate favorite
+                // Provide modal message on duplicate click
                 $('#modal-title').text('Already in Favorites');
                 $('#modal-message').html(`${favoriteObject.vidTitle} is already in your favorites!`);
                 $modal.open();
@@ -338,6 +338,19 @@ $(function (){
         // TEST
         var favoritesArray = JSON.parse(localStorage.getItem('favoritesArray'));
 
+        // If no favorites yet, display a message
+        if (!favoritesArray.length) {
+            $('#modal-title').text('No Favorites Yet');
+            $('#modal-message').text(
+                `You haven't chosen any favorite videos yet.
+                 Click the blue button beneath a video's description to
+                 add it here!`
+            );
+            $modal.open();
+            // Exit function
+            return;
+        }
+
         for (var i=0; i<favoritesArray.length; i++) { //TODO: REPLACE i<=8 with i<=favoritesArray.length
             // create new HTML elements
             var div1 = $('<div class="cell"></div>');
@@ -369,7 +382,6 @@ $(function (){
                 favoritesRowArray[2].append(div1);
             }
         }
-        
     }
     // document.getElementById("notes").addEventListener("click", function() {
 
