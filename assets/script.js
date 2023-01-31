@@ -217,7 +217,11 @@ $(function (){
                 searchData = processSearchData(dataList);
                 // store search data by topic : [searchData]
                 localStorage.setItem(topic, JSON.stringify(searchData));
-                // We could call renderSearch(searchData) here
+                
+                // Render search results
+                homeDisplay.hide();
+                resultsDisplay.show();
+                renderSearch();
                 // TODO: Remove
                 console.table(searchData);
 
@@ -227,10 +231,6 @@ $(function (){
 
         localStorage.setItem('topicInput', JSON.stringify(topic)); 
 
-        homeDisplay.hide();
-        resultsDisplay.show();
-
-        renderSearch();
     })
 
     var backBtn = $('#back');
