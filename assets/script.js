@@ -99,13 +99,44 @@ $(function (){
     // Initialize Foundation plugins (like Reveal modal)
     $(document).foundation();
 
-    // We can add options to our modal later
-    var modalOptions = {};
+    // Load the YT Iframe Player API code asynchonously
+    var tag = document.createElement('script');
+    tag.src = 'https://www.youtube.com/iframe_api';
+    var firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
+    var player;
+    // API expects `onYouTubeIframeAPIReady()` to be in global scope
+    window.onYouTubeIframeAPIReady = function() {
+        player = new YT.Player('player', {
+            height: '390',
+            width: '640',
+            videoId: 'et8xNAc2ic8', // wtfjs
+            playerVars: {
+                modestBranding: 1
+            }
+        });
+    };
+
+
+    // Notifications modal
+    var modalOptions = {};
     var $modal = new Foundation.Reveal($('#modal'), modalOptions);
 
     $('#modal-close').click(function() {
         $modal.close();
+    });
+
+    // Video modal
+    var videoOptions = {};
+    var $videoModal = new Foundation.Reveal($("#video-modal"), videoOptions);
+    $('#video-modal-open').click(function() {
+        $videoModal.open();
+    });
+    $('#video-modal-close').click(function() {
+        $videoModal.close();
+        // Pause the video if the user hasn't already
+        player.pauseVideo();
     });
 
     var homeDisplay = $('#home-display');
@@ -228,6 +259,18 @@ $(function (){
             favorites.text('Favorites');
         }  
     })
+   
+    // Click handler callback to play videos in results and favorites
+    function openModalgetIdPlayVideo(event) {
+        var target = $(event.target);
+        if (target.hasClass('videoTitle') || target.prop("tagName") == 'IMG') {
+            $videoModal.open();
+            var videoId = target.parent().attr('id');
+            console.log("videoId", videoId);
+            // load video in player
+            player.loadVideoById(videoId);
+        }
+    }
 
     function renderSearch() {
         // TEST
@@ -254,6 +297,8 @@ $(function (){
             div2.append(thumbnail);
             div2.append(videoDescr);
             div2.append(favoriteBtn);
+            // Play video
+            div2.on('click', openModalgetIdPlayVideo); 
 
             if(i<=2) {
                 videoRowArray[0].append(div1);
@@ -380,6 +425,9 @@ $(function (){
     
             div1.append(div2);
             div2.append(removeBtn,vidTitle,thumbnail,vidDescr,notesBtn);
+
+            // Play video
+            div2.on('click', openModalgetIdPlayVideo);
 
             if(i<=2) {
                 favoritesRowArray[0].append(div1);
