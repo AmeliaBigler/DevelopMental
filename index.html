@@ -14,12 +14,12 @@
   <div class="top-bar">
     <div class="top-bar-left">
       <ul class="dropdown menu" data-dropdown-menu>
-        <img src="./assets/DevelopMental.png" alt="DevelopMental logo" style="height: 50px;">
+        <button onClick="window.location.reload()"><img src="./assets/DevelopMental.png" alt="DevelopMental logo" style="height: 66px;"></button>
       </ul>
     </div>
     <div class="top-bar-right">
       <ul class="dropdown menu" data-dropdown-menu>
-        <li><a id="favorites-home">Favorites</a></li>
+        <li><button class="secondary button"id="favorites-home">Favorites</button></li>
       </ul>
     </div>
   </div>
@@ -35,14 +35,14 @@
     </button>
   </div>
 
-  <div id="home-display" class="grid-container">
-    <p> A mental health app for developers.</p>
-    <p> Before you throw your laptop across the room, or punch your monitor, try this app.</p>
+  <div id="home-display" class="grid-container margin1">
+    <p class="text-size-1"> A mental health app for developers.</p>
+    <p class="text-size-2 margin2"><strong><em>Before</em></strong> you throw your laptop across the room, or punch your monitor, try this app.</p>
     <div class="grid-x">
       <div class="cell medium-6 large-4">
 
         <form>
-          <label>Select a topic:</label>
+          <label><em>Select a topic:</em></label>
             <select id="topic-input">
               <option value="" selected></option>
               <option value="breathing">Breathing Exercises</option>
