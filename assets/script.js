@@ -101,7 +101,6 @@ $(function (){
 
     // We can add options to our modal later
     var modalOptions = {};
-
     var $modal = new Foundation.Reveal($('#modal'), modalOptions);
 
     $('#modal-close').click(function() {
