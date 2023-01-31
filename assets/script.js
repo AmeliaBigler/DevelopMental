@@ -368,7 +368,7 @@ $(function (){
             var thumbnail = $('<img>').attr('src', favoritesArray[i].vidThumbnail);
             var vidDescr = $('<p></p>').text(favoritesArray[i].vidDescr);
             var notesBtn = $('<button class="button notes">Notes</button>'); //TODO: event listener for notes button.
-    
+            
             // TODO: create these rows dynamically so that the user can have more than 9 favorite videos.
             var favoritesRow1 = $('#favoritesRow1');
             var favoritesRow2 = $('#favoritesRow2');
@@ -389,6 +389,9 @@ $(function (){
         }
         
     }
+    // document.getElementById("notes").addEventListener("click", function() {
+
+    // })
 
     init();
 
