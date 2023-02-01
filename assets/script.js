@@ -371,7 +371,7 @@ $(function (){
     
             div1.append(div2);
             // Wait for note button functionality
-            div2.append(removeBtn,thumbnail,vidTitle,vidDescr /*,notesBtn */);
+            div2.append(removeBtn, thumbnail,vidTitle,vidDescr/*,notesBtn */);
 
             // Play video
             div2.on('click', openModalgetIdPlayVideo);
