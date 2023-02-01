@@ -127,7 +127,7 @@ $(function (){
                 resultsDisplay.show();
                 renderSearch();
                 // TODO: Remove
-                console.table(searchData);
+                // console.table(searchData);
 
             }).catch(function(error) {
                 console.log(error, error.stack);
@@ -335,7 +335,6 @@ $(function (){
 
     // Define renderFavorites function
     function renderFavorites() {
-        // TEST
         var favoritesArray = JSON.parse(localStorage.getItem('favoritesArray'));
 
         // If no favorites yet, display a message
@@ -385,6 +384,27 @@ $(function (){
                 favoritesRowArray[2].append(div1);
             }
         }
+
+        var removeButtons = $('.remove');
+        console.log(removeButtons);
+        removeButtons.click(function(){
+            favoritesGrandparent.children().children().empty();
+
+            var removeID = $(this).parent().attr('id');
+
+            var removeArray = favoritesArray.filter(function(Object){
+                // return !Object.contains(removeID);
+                if (Object.vidID !== removeID){
+                    return Object;
+                };
+            });
+            console.log(removeArray);
+
+            localStorage.setItem('favoritesArray', JSON.stringify(removeArray));
+
+            renderFavorites();
+        })
+
     }
     // document.getElementById("notes").addEventListener("click", function() {
 
