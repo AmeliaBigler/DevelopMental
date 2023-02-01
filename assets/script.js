@@ -1,105 +1,10 @@
 // all code inside call to jQuery - will not run until document renders.
 $(function (){
 
-    // TEST array so development can continue without making repeated API calls. 
-    // TODO: remove this array when ready.
-    // var dataList = [
-    //     {
-    //         "videoId": "FI51zRzgIe4",
-    //         "title": "8 Minute Stretching Routine For People Who AREN’T Flexible!",
-    //         "description": "Follow-along total-body stretching routine to decrease tightness and improve flexibility! Dr Jared Beckstrand leads you through 8 ...",
-    //         "thumbnailUrl": {
-    //             "medium": "https://i.ytimg.com/vi/FI51zRzgIe4/mqdefault.jpg",
-    //             "large": "https://i.ytimg.com/vi/FI51zRzgIe4/hqdefault.jpg"
-    //         }
-    //     },
-    //     {
-    //         "videoId": "2eA2Koq6pTI",
-    //         "title": "Back Pain Relief Stretches |  10 min. Yoga for Relaxation &amp; Recovery",
-    //         "description": "Enjoy this beautiful Yoga inspired Stretching Routine to release tension in your upper, middle and lower back. These stretches are ...",
-    //         "thumbnailUrl": {
-    //             "medium": "https://i.ytimg.com/vi/2eA2Koq6pTI/mqdefault.jpg",
-    //             "large": "https://i.ytimg.com/vi/2eA2Koq6pTI/hqdefault.jpg"
-    //         }
-    //     },
-    //     {
-    //         "videoId": "aZ1PzhThqcU",
-    //         "title": "15-Min Full-Body Stretching Routine",
-    //         "description": "PDF pose chart here: https://www.yogabody.com/full-body-flexibility-youtube/ If you have stiff hamstrings, locked up hips, and/or a ...",
-    //         "thumbnailUrl": {
-    //             "medium": "https://i.ytimg.com/vi/aZ1PzhThqcU/mqdefault.jpg",
-    //             "large": "https://i.ytimg.com/vi/aZ1PzhThqcU/hqdefault.jpg"
-    //         }
-    //     },
-    //     {
-    //         "videoId": "YfCK3uOz1r4",
-    //         "title": "10 MIN STRETCHING EXERCISES FOR STIFF MUSCLES AT HOME ( Relaxation &amp; Flexibility ) | No Equipment",
-    //         "description": "These stretching exercises for stiff muscles is a perfect routine for home! This stretching routine is amazing for relaxation and ...",
-    //         "thumbnailUrl": {
-    //             "medium": "https://i.ytimg.com/vi/YfCK3uOz1r4/mqdefault.jpg",
-    //             "large": "https://i.ytimg.com/vi/YfCK3uOz1r4/hqdefault.jpg"
-    //         }
-    //     },
-    //     {
-    //         "videoId": "nm-fxV-bwWg",
-    //         "title": "6 Minute Stretching Routine For Tight Hips and Low Back Pain",
-    //         "description": "Follow-along stretching routine for tight hips and low back pain that you can do at home! Led by a physical therapist to improve ...",
-    //         "thumbnailUrl": {
-    //             "medium": "https://i.ytimg.com/vi/nm-fxV-bwWg/mqdefault.jpg",
-    //             "large": "https://i.ytimg.com/vi/nm-fxV-bwWg/hqdefault.jpg"
-    //         }
-    //     },
-    //     {
-    //         "videoId": "g_tea8ZNk5A",
-    //         "title": "15 Min. Full Body Stretch | Daily Routine for Flexibility, Mobility &amp; Relaxation | DAY 7",
-    //         "description": "Welcome to your 15 Minutes Full Body Stretching Routine! This short and well balanced sequence provides you with everything ...",
-    //         "thumbnailUrl": {
-    //             "medium": "https://i.ytimg.com/vi/g_tea8ZNk5A/mqdefault.jpg",
-    //             "large": "https://i.ytimg.com/vi/g_tea8ZNk5A/hqdefault.jpg"
-    //         }
-    //     },
-    //     {
-    //         "videoId": "tkH2-_jMCSk",
-    //         "title": "Improve Flexibility with Research-Supported Stretching Protocols | Huberman Lab Podcast #76",
-    //         "description": "In this episode, I explain the science behind limb range of motion and flexibility and how to increase them by using ...",
-    //         "thumbnailUrl": {
-    //             "medium": "https://i.ytimg.com/vi/tkH2-_jMCSk/mqdefault.jpg",
-    //             "large": "https://i.ytimg.com/vi/tkH2-_jMCSk/hqdefault.jpg"
-    //         }
-    //     },
-    //     {
-    //         "videoId": "JJAHGpe0AVU",
-    //         "title": "Real Time Full Body Stretching Routine - Ask Doctor Jo",
-    //         "description": "This full body stretching routine is great for general wellness, flexibility, and pain relief. This real-time video will give you a relaxing ...",
-    //         "thumbnailUrl": {
-    //             "medium": "https://i.ytimg.com/vi/JJAHGpe0AVU/mqdefault.jpg",
-    //             "large": "https://i.ytimg.com/vi/JJAHGpe0AVU/hqdefault.jpg"
-    //         }
-    //     },
-    //     {
-    //         "videoId": "sTANio_2E0Q",
-    //         "title": "20 min Full Body STRETCH/YOGA for STRESS &amp; ANXIETY Relief",
-    //         "description": "De-stress with this 20 minute calming yoga routine that includes light and easy full body stretches for stress relief and anxiety.",
-    //         "thumbnailUrl": {
-    //             "medium": "https://i.ytimg.com/vi/sTANio_2E0Q/mqdefault.jpg",
-    //             "large": "https://i.ytimg.com/vi/sTANio_2E0Q/hqdefault.jpg"
-    //         }
-    //     },
-    //     {
-    //         "videoId": "s-7lyvblFNI",
-    //         "title": "Stretches for Neck, Shoulder &amp; Upper Back Pain Relief | 10 min. Yoga to release Tension and Relax",
-    //         "description": "Welcome to this beautiful Yoga inspired routine for neck, shoulder and upper back pain relief. These stretches are designed to ...",
-    //         "thumbnailUrl": {
-    //             "medium": "https://i.ytimg.com/vi/s-7lyvblFNI/mqdefault.jpg",
-    //             "large": "https://i.ytimg.com/vi/s-7lyvblFNI/hqdefault.jpg"
-    //         }
-    //     }
-    // ];
-
     // Initialize Foundation plugins (like Reveal modal)
     $(document).foundation();
 
-    // Load the YT Iframe Player API code asynchonously
+    // Load the YT Iframe Player API code asynchronously
     var tag = document.createElement('script');
     tag.src = 'https://www.youtube.com/iframe_api';
     var firstScriptTag = document.getElementsByTagName('script')[0];
@@ -268,6 +173,7 @@ $(function (){
         if (target.hasClass('videoTitle') || target.prop("tagName") == 'IMG') {
             $videoModal.open();
             var videoId = target.parent().attr('id');
+            // TODO: Remove
             console.log("videoId", videoId);
             // load video in player
             player.loadVideoById(videoId);
@@ -329,13 +235,37 @@ $(function (){
 
             var favoritesArray = JSON.parse(localStorage.getItem('favoritesArray'));
             // console.log(favoritesArray);
+            // favoritesArray is created in init(), so !== null
 
-            favoritesArray.push(favoriteObject);
+            // Check for duplicates
+            if (isDuplicateFavorite(favoriteObject, favoritesArray)) {
+                // Provide modal message on duplicate click
+                $('#modal-title').text('Already in Favorites');
+                $('#modal-message').html(`${favoriteObject.vidTitle} is already in your favorites!`);
+                $modal.open();
 
-            localStorage.setItem('favoritesArray', JSON.stringify(favoritesArray));
+            } else {
+                // Not duplicate, so add to favoritesArray
+                favoritesArray.push(favoriteObject);
+                // Update localStorage with new item
+                localStorage.setItem('favoritesArray', JSON.stringify(favoritesArray));
+            }
+
+
 
         })
         
+    }
+
+    function isDuplicateFavorite(favoriteObject, favoritesArray) {
+        var currentId = favoriteObject.vidID;
+        // Attempt to find matching vidID in the favoritesArray
+        for (var i = 0; i < favoritesArray.length; i++) {
+            if (currentId === favoritesArray[i].vidID) {
+                return true;
+            }
+        }
+        return false;
     }
 
     // TODO: fetch youtube API
@@ -408,6 +338,19 @@ $(function (){
         // TEST
         var favoritesArray = JSON.parse(localStorage.getItem('favoritesArray'));
 
+        // If no favorites yet, display a message
+        if (!favoritesArray.length) {
+            $('#modal-title').text('No Favorites Yet');
+            $('#modal-message').text(
+                `You haven't chosen any favorite videos yet.
+                 Click the blue button beneath a video's description to
+                 add it here!`
+            );
+            $modal.open();
+            // Exit function
+            return;
+        }
+
         for (var i=0; i<favoritesArray.length; i++) { //TODO: REPLACE i<=8 with i<=favoritesArray.length
             // create new HTML elements
             var div1 = $('<div class="cell"></div>');
@@ -439,7 +382,6 @@ $(function (){
                 favoritesRowArray[2].append(div1);
             }
         }
-        
     }
     // document.getElementById("notes").addEventListener("click", function() {
 
