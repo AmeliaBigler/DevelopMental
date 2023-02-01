@@ -35,3 +35,8 @@ h2{
     font-size: 0.96em;
     padding: 0 0.6em 0.8em 0.6em;
  }
+
+ .cell {
+    display: flex;
+    align-items: stretch;
+ }
