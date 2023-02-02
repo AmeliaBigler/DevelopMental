@@ -10,7 +10,7 @@ N/A
 
 ## Usage
 
-file:///C:/Users/crist/bootcamp/DevelopMental/index.html
+https://ameliabigler.github.io/DevelopMental/
 
 https://github.com/AmeliaBigler/DevelopMental
 
