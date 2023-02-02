@@ -10,7 +10,7 @@ N/A
 
 ## Usage
 
-https://ameliabigler.github.io/DevelopMental/
+[Deployed Website Link](https://ameliabigler.github.io/DevelopMental/)
 
 https://github.com/AmeliaBigler/DevelopMental
 
