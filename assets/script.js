@@ -99,10 +99,6 @@ $(function (){
         if (cachedSearch) {
             searchData = JSON.parse(cachedSearch);
 
-            // TODO: Remove
-            console.log("Getting cached searchResults");
-            console.table(searchData);
-
             homeDisplay.hide();
             resultsDisplay.show();
 
@@ -112,8 +108,6 @@ $(function (){
         }
 
         url = generateYTSearchURL(topic, staticParams);
-        // TODO: Remove
-        console.log(url);
 
         getYTSearchData(url)
             .then(function(data) {
@@ -126,11 +120,9 @@ $(function (){
                 homeDisplay.hide();
                 resultsDisplay.show();
                 renderSearch();
-                // TODO: Remove
-                // console.table(searchData);
 
             }).catch(function(error) {
-                console.log(error, error.stack);
+                console.error(error, error.stack);
             })
 
         localStorage.setItem('topicInput', JSON.stringify(topic)); 
@@ -172,8 +164,7 @@ $(function (){
         if (target.hasClass('videoTitle') || target.prop("tagName") == 'IMG') {
             $videoModal.open();
             var videoId = target.parent().attr('id');
-            // TODO: Remove
-            console.log("videoId", videoId);
+
             // load video in player
             player.loadVideoById(videoId);
         }
@@ -224,7 +215,6 @@ $(function (){
             var vidThumbnail = $(this).siblings('img').attr('src');
             var vidDescr = $(this).siblings('p')[0].innerHTML;
 
-            // console.log(vidTitle,vidID,vidThumbnail,vidDescr);
 
             var favoriteObject = {
                 vidTitle: vidTitle,
@@ -234,7 +224,7 @@ $(function (){
             };
 
             var favoritesArray = JSON.parse(localStorage.getItem('favoritesArray'));
-            // console.log(favoritesArray);
+
             // favoritesArray is created in init(), so !== null
 
             // Check for duplicates
@@ -386,7 +376,7 @@ $(function (){
         }
 
         var removeButtons = $('.remove');
-        console.log(removeButtons);
+
         removeButtons.click(function(){
             favoritesGrandparent.children().children().empty();
 
@@ -398,7 +388,6 @@ $(function (){
                     return Object;
                 };
             });
-            console.log(removeArray);
 
             localStorage.setItem('favoritesArray', JSON.stringify(removeArray));
 
@@ -406,9 +395,6 @@ $(function (){
         })
 
     }
-    // document.getElementById("notes").addEventListener("click", function() {
-
-    // })
 
     init();
 
